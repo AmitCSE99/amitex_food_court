@@ -10,6 +10,7 @@ const csrf=require('csurf');
 const flash=require('connect-flash');
 const MONGODB_URI='mongodb+srv://AmitenduMallick:Amitendu99@cluster0.2z5od.mongodb.net/shop';
 const app=express();
+const port=process.env.PORT || 80;
 
 const store=new MongoDBStore({
     uri:MONGODB_URI,
@@ -55,7 +56,7 @@ app.use(shopRoutes);
 app.use(authRoutes);
 app.use(adminRoutes);
 mongoose.connect(MONGODB_URI).then(result=>{
-    app.listen(80);
+    app.listen(port);
 }).catch(err=>{
     console.log(err)
 })
