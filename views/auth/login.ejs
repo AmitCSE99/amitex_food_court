@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+    <nav class="navigation" id="navbar">
+        <div id="logo">
+            <img src="/img/logo.png" alt="Amitex Food">
+        </div>
+        <ul id="navList">
+            <li class="navListItem"><a href="/">Home</a></li>
+            <li class="navListItem"><a href="/products">Products</a></li>
+            <% if(!isAdmin&&isAuthenticated){ %> 
+                <li class="navListItem"><a href="">Cart</a></li>
+                <li class="navListItem"><a href="">Your Orders</a></li>
+                <li class="navListItem"><a href="">Your Account</a></li>
+                <% } %>
+            <% if(isAdmin&&isAuthenticated){ %> 
+                <li class="navListItem"><a href="/admin-product-list">Admin Products</a></li>
+                <li class="navListItem"><a href="/add-product">Add Products</a></li>
+                <% } %> 
+            
+
+        </ul>
+        <div class="authList">
+            <ul id="authList">
+                <% if(!isAuthenticated){ %> 
+                <li class="authListItem"><a href="/login" class="active">Login</a></li>
+                <li class="authListItem"><a href="/signup">Signup</a></li>
+                <% } %> 
+                <% if(isAuthenticated){ %> 
+                <li class="authListItem"> <form action="/logout" method="post">
+                    <button type="submit">logout</button>
+                </form></li>
+                <% } %> 
+                <li class="authListItem"><a href="/feedback">Feedback</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="authContainer">
+        <form class="authForm" action="/login" method="post">
+            <% if(errorMessage){ %> 
+            <h1 id="errorMessage"><%= errorMessage %> </h1>
+            <% } %> 
+            <h1 id="authHeading">
+                Please enter your credentials
+            </h1>
+            <input type="email" name="email" id="email" placeholder="Email">
+            <input type="password" name="password" id="password" placeholder="Password">
+            <button id="authSubmit" type="submit">Submit</button>
+    
+        </form>
+    </div>
+</body>
+</html>

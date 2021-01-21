@@ -1,0 +1,175 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+}
+.navigation{
+    display: flex;
+    position: sticky;
+    align-items: center;
+    top: 0px;
+}
+.navigation::before{
+    content: "";
+    position: absolute;
+    background: black;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.59;
+}
+#navList{
+    display: flex;
+    
+}
+.navListItem{
+    list-style: none;
+    margin: 10px;
+}
+.navListItem a{
+    /* display: block; */
+    text-decoration: none;
+    padding: 15px;
+    color: rgb(243, 160, 160);
+}
+.navListItem a:hover,
+.navListItem a:active,
+.navListItem a.active{
+  color: #ffeb3b;
+  
+}
+
+
+#home{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    top: 0px;
+    left: 0px;
+    padding: 10px 200px;
+    height: 100%;
+}
+.homeHeader{
+    font-size: 30px;
+    margin: 25px;
+    text-align: center;
+}
+#home p{
+    margin: 5px;
+    text-align: center;
+    height: 100px;
+}
+#home::before{
+    content: "";
+    position: absolute;
+    background: url('../img/home.jpg') no-repeat center center/cover ;
+    /* height: 550px; */
+    width: 100%;
+    height: 900px;
+    z-index: -1;
+    opacity: 0.35;
+
+}
+#feedBack{
+    margin-top: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+#feedBack::before{
+    margin-top: 365px;
+    content: "";
+    position: absolute;
+    background: url('../img/feedback.jpg') no-repeat center center/cover ;
+    /* height: 550px; */
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.45;
+
+}
+#feedBack form{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+}
+
+#feedBack form input{
+    width:70%;
+    margin: 10px;
+    /* border-radius: 10px solid black; */
+}
+#feedBack form textarea{
+    margin: 5px;
+    width: 70%;
+}
+.sectionHeader{
+    font-size: 30px;
+    margin: 30px;
+    
+}
+.submitMain{
+    margin-top: 10px;
+    width: 100px;
+}
+#logo{
+    margin: 10px 45px;
+}
+#logo img{
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    border-radius: 25px;
+    
+}
+.authList{
+    display: flex;
+}
+#authList{
+    display: flex;
+    justify-items: flex-end;
+}
+.authListItem{
+    list-style: none;
+    margin: 10px;
+}
+.authListItem a{
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    color: rgb(243, 160, 160);
+}
+.authListItem a:hover{
+    color: rgb(57, 99, 240);
+
+}
+.authListItem button{
+  background: transparent;
+  border-color: transparent;
+  border: none;
+  text-decoration: none;
+  padding: 15px;
+  color: rgb(243, 160, 160);
+  cursor: pointer;
+}
+.authListItem button:hover{
+    color: rgb(57, 99, 240);
+}
+.authListItem a:hover,
+.authListItem a:active,
+.authListItem a.active,
+.authListItem button:hover,
+.authListItem button:active {
+  color: #ffeb3b;
+}

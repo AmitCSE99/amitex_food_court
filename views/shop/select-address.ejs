@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Design</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/address.css">
+</head>
+<body>
+    <nav class="navigation" id="navbar">
+        <div id="logo">
+            <img src="/img/logo.png" alt="Amitex Food">
+        </div>
+        <ul id="navList">
+            <li class="navListItem"><a href="/">Home</a></li>
+            <li class="navListItem"><a href="/products">Products</a></li>
+            <% if(!isAdmin&&isAuthenticated){ %> 
+                <li class="navListItem"><a href="/cart" class="active">Cart</a></li>
+                <li class="navListItem"><a href="/orders">Your Orders</a></li>
+                <li class="navListItem"><a href="/profile" >Your Account</a></li>
+                <% } %>
+            <% if(isAdmin&&isAuthenticated){ %> 
+            <li class="navListItem"><a href="/admin-product-list">Admin Products</a></li>
+            <li class="navListItem"><a href="/add-product">Add Products</a></li>
+            <% } %> 
+            
+
+        </ul>
+        <div class="authList">
+            <ul id="authList">
+                <% if(!isAuthenticated){ %> 
+                <li class="authListItem"><a href="/login">Login</a></li>
+                <li class="authListItem"><a href="/signup">Signup</a></li>
+                <% } %> 
+                <% if(isAuthenticated){ %> 
+                <li class="authListItem"> <form action="/logout" method="post">
+                    <button type="submit">Logout</button>
+                </form></li>
+                <% } %> 
+                <li class="authListItem"><a href="/feedback">Feedback</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+        <section class="ListItem">
+           <div class="addressItems">
+            <% for( let index = 0; index < user.address.length; index++ ) { %>
+                <div class="address">
+                    <h3>Address <%= index+1 %> </h3>
+                    <h3><%= user.address[index] %>  </h3>
+                    <form action="/create-order" method="post">
+                        <input type="hidden" name="index" value=<%= index %> >
+                        <button type="submit">Deliver here</button>
+                    </form>
+                </div>
+            <% } %>
+            
+           
+           </div>
+
+        </section>
+</body>
+</html

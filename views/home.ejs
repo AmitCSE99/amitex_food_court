@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Design</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+        <nav class="navigation" id="navbar">
+            <div id="logo">
+                <img src="/img/logo.png" alt="Amitex Food">
+            </div>
+            <ul id="navList">
+                <li class="navListItem"><a href="/" class="active">Home</a></li>
+                <li class="navListItem"><a href="/products">Products</a></li>
+                <% if(!isAdmin&&isAuthenticated){ %> 
+                    <li class="navListItem"><a href="/cart">Cart</a></li>
+                    <li class="navListItem"><a href="/orders">Your Orders</a></li>
+                    <li class="navListItem"><a href="/profile">Your Account</a></li>
+                    <% } %>
+                <% if(isAdmin&&isAuthenticated){ %> 
+                <li class="navListItem"><a href="/admin-product-list">Admin Products</a></li>
+                <li class="navListItem"><a href="/add-product">Add Products</a></li>
+                <% } %> 
+                
+
+            </ul>
+            <div class="authList">
+                <ul id="authList">
+                    <% if(!isAuthenticated){ %> 
+                    <li class="authListItem"><a href="/login">Login</a></li>
+                    <li class="authListItem"><a href="/signup">Signup</a></li>
+                    <% } %> 
+                    <% if(isAuthenticated){ %> 
+                    <li class="authListItem"> <form action="/logout" method="post">
+                        <button type="submit">Logout</button>
+                    </form></li>
+                    <% } %> 
+                    <li class="authListItem"><a href="/feedback">Feedback</a></li>
+                    
+                </ul>
+            </div>
+        </nav>
+    <section id="home">
+        <h1 class="homeHeader">Welcome to Amitex Food Court</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur mollitia tenetur architecto, voluptatem rem quos sit illum alias! Officia, beatae! Explicabo accusantium non fuga, modi odio accusamus nostrum eius iusto!</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. A illum nisi tempora, aliquid nemo et perspiciatis dolorum totam cum suscipit esse eius vitae. Sint, qui accusamus. Iusto, labore deserunt corrupti tempora accusamus nobis quos fugiat dolores, maiores aspernatur esse nesciunt beatae, voluptatibus nostrum quis. Deserunt cumque ea quas tenetur ut?</p>
+        <form action="/products" method="get">
+            <button class="submitMain" type="submit">Order Now!</button>
+        </form>
+    </section>
+    <!-- <section id="feedBack">
+        <h1 class="sectionHeader">Feedback</h1>
+        <form class="form" action="/" method="post">
+            <input type="email" name="email" id="email" placeholder="email">
+            <input type="text" name="name" id="name" placeholder="name">
+            <textarea name="message" id="message" cols="62" rows="3" placeholder="Leave a message"></textarea>
+            <button class="submitMain" type="submit">Submit</button>
+        </form>
+    </section> -->
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Design</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/product-list.css">
+</head>
+<body>
+    <nav class="navigation" id="navbar">
+        <div id="logo">
+            <img src="/img/logo.png" alt="Amitex Food">
+        </div>
+        <ul id="navList">
+            <li class="navListItem"><a href="/">Home</a></li>
+            <li class="navListItem"><a href="/products" class="active">Products</a></li>
+            <% if(!isAdmin&&isAuthenticated){ %> 
+                <li class="navListItem"><a href="/cart">Cart</a></li>
+                <li class="navListItem"><a href="/orders">Your Orders</a></li>
+                <li class="navListItem"><a href="/profile">Your Account</a></li>
+                <% } %>
+            <% if(isAdmin&&isAuthenticated){ %> 
+            <li class="navListItem"><a href="/admin-product-list">Admin Products</a></li>
+            <li class="navListItem"><a href="/add-product">Add Products</a></li>
+            <% } %> 
+            
+
+        </ul>
+        <div class="authList">
+            <ul id="authList">
+                <% if(!isAuthenticated){ %> 
+                <li class="authListItem"><a href="/login">Login</a></li>
+                <li class="authListItem"><a href="/signup">Signup</a></li>
+                <% } %> 
+                <% if(isAuthenticated){ %> 
+                <li class="authListItem"> <form action="/logout" method="post">
+                    <button type="submit">Logout</button>
+                </form></li>
+                <% } %> 
+                <li class="authListItem"><a href="/feedback">Feedback</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+        <section class="ListItem">
+            
+            <% if(prods.length>0){ %> 
+            <div class="productList">
+                <% for(let product of prods){ %> 
+                <div class="productListItem">
+                    <div id="titleContainer">
+                        <h3><%= product.productName %> </h3>
+                    </div>
+                    <div class="imageContainer">
+                        <img src=<%= product.imageUrl %>  alt="amitex">
+                    </div>
+                    <div class="priceContainer">
+                        <h3>₹<%= product.productPrice %> </h3>
+                    </div>
+                    <% if(isAuthenticated){ %> 
+                    <form action="/cart" method="post">
+                        <input type="hidden" name="productId" value=<%= product._id %> >
+                        <button type="submit">Add to cart</button>
+                    </form>
+                    <% } %> 
+                    <form action="/products/<%= product._id %> " method="get">
+                        <button type="submit">Details</button>
+                    </form>
+                </div>
+                <% } %> 
+                
+            </div>
+            <% } %> 
+
+        </section>
+</body>
+</html>

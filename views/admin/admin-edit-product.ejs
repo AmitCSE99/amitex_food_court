@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Design</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/add-product.css">
+</head>
+<body>
+        <nav class="navigation" id="navbar">
+            <div id="logo">
+                <img src="/img/logo.png" alt="Amitex Food">
+            </div>
+            <ul id="navList">
+                <li class="navListItem"><a href="/">Home</a></li>
+                <li class="navListItem"><a href="/products">Products</a></li>
+                <% if(!isAdmin&&isAuthenticated){ %> 
+                <li class="navListItem"><a href="">Cart</a></li>
+                <li class="navListItem"><a href="">Your Orders</a></li>
+                <% } %> 
+                <% if(isAdmin&&isAuthenticated){ %> 
+                    <li class="navListItem"><a href="/admin-product-list">Admin Products</a></li>
+                    <li class="navListItem"><a href="/add-product">Add Products</a></li>
+                    <% } %> 
+                
+
+            </ul>
+            <div class="authList">
+                <ul id="authList">
+                    <% if(!isAuthenticated){ %> 
+                    <li class="authListItem"><a href="/login">Login</a></li>
+                    <li class="authListItem"><a href="/signup">Signup</a></li>
+                    <% } %> 
+                    <li class="authListItem"><a href="/logout">Logout</a></li>
+                    
+                </ul>
+            </div>
+        </nav>
+        <section id="add-product">
+            <form action="/admin/<%= product._id %>" method="post">
+                <input type="hidden" value="<%= product._id %>" name="productId" >
+                <input type="text" name="productName" id="productName" value="<%= product.productName %>" >
+                <input type="text" name="imageUrl" id="imageUrl" value="<%= product.imageUrl %>" >
+                <input type="number" name="productPrice" id="productPrice" placeholder=<%= product.productPrice %> >
+                <textarea name="productDescription" id="productDescription" cols="30" rows="10" placeholder="Enter Product Description"><%= product.productDescription %> </textarea>
+                <button type="submit">Add Product</button>
+            </form>
+
+        </section>
+</body>
+</html>

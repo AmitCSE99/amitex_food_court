@@ -1,0 +1,161 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+}
+.navigation{
+    display: flex;
+    position: sticky;
+    align-items: center;
+    top: 0px;
+}
+.navigation::before{
+    content: "";
+    position: absolute;
+    background: black;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.59;
+}
+#navList{
+    display: flex;
+    
+}
+.navListItem{
+    list-style: none;
+    margin: 10px;
+}
+.navListItem a{
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    color: rgb(243, 160, 160);
+}
+.navListItem a:hover,
+.navListItem a:active,
+.navListItem a.active,
+.navListItem button:hover,
+.navListItem button:active {
+  color: #ffeb3b;
+}
+
+
+
+#logo{
+    margin: 10px 45px;
+}
+#logo img{
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    border-radius: 25px;
+    
+}
+.authList{
+    display: flex;
+}
+#authList{
+    display: flex;
+    justify-items: flex-end;
+}
+.authListItem{
+    list-style: none;
+    margin: 10px;
+}
+.authListItem a{
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    color: rgb(243, 160, 160);
+}
+.authListItem a:hover{
+    color: rgb(57, 99, 240);
+
+}
+.cartItems{
+    display: flex;
+    flex-direction: column;
+    background-color:rgb(206, 135, 85);
+}
+.placeOrderBtn{
+    margin-top: 10px;
+    margin-left: 42%;
+    width: 15%;
+    background-color:rgb(248, 206, 16) ;
+}
+
+.productList{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+.productListItem{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin: 20px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.26);
+}
+.priceContainer{
+    margin-bottom: 5px;
+}
+.quantityContainer{
+    margin-bottom: 5px;
+}
+.imageContainer img{
+    width: 170px;
+    height: 180px;
+    border: 2px solid rgb(241, 231, 169);
+    
+}
+.productListItem button{
+    width: 150px;
+    margin-bottom: 10px;
+    background-color:rgb(248, 206, 16) ;
+}
+.productListItem button:hover{
+    cursor: pointer;
+}
+.authListItem button{
+    background: transparent;
+    border-color: transparent;
+    border: none;
+    text-decoration: none;
+    padding: 15px;
+    color: rgb(243, 160, 160);
+    cursor: pointer;
+  }
+  .authListItem button:hover{
+      color: rgb(57, 99, 240);
+  }
+  .buttonContainer{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+  }
+  .quantity{
+      display: flex;
+  }
+ .quantity button{
+     width: 50px;
+ }
+ .authListItem a:hover,
+.authListItem a:active,
+.authListItem a.active,
+.authListItem button:hover,
+.authListItem button:active {
+  color: #ffeb3b;
+}
+#noItems{
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 30px;
+}
